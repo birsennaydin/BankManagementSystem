@@ -8,11 +8,11 @@ import (
 )
 
 func main() {
-	router := gin.Default()
+	router := gin.Default() // Start a Gin router
 
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "pong"})
 	})
 
-	router.Run(":8080") // Uygulama localhost:8080'de çalışır
+	router.Run(":8080")
 }
