@@ -1,11 +1,14 @@
 package main
 
 import (
+	"github.com/birsennaydin/BankManagementSystem/database"
 	"github.com/birsennaydin/BankManagementSystem/routes"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	database.InitCassandra()
+
 	router := gin.Default()
 
 	routes.AuthRoutes(router)

@@ -16,3 +16,11 @@ func GenerateJWT(username string) (string, error) {
 	})
 	return token.SignedString(jwtKey)
 }
+
+func GenerateRefreshToken(username string) (string, error) {
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"username": username,
+		"exp":      time.Now().Add(7 * 24 * time.Hour).Unix(), // 7 gün geçerli
+	})
+	return token.SignedString(jwtKey)
+}
